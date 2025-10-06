@@ -183,56 +183,68 @@ if (emailForm) {
         const emailInput = this.querySelector('.email-input');
         const email = emailInput.value;
         const submitBtn = this.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.textContent;
+
+        // Валидация email
+        if (!email || !email.includes('@')) {
+            alert('Пожалуйста, введите корректный email');
+            return;
+        }
 
         // Показываем состояние загрузки
         submitBtn.textContent = 'Подписываем...';
         submitBtn.disabled = true;
 
-        // Здесь должна быть интеграция с вашим сервисом email-рассылки
-        // Например: Mailchimp, SendPulse, GetResponse и т.д.
+        // URL вашего Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzwoT3VkktRHb54ItS7-YMTmkWGc0c7vtHtKHCc2UWiEL3C50L8Beyq6561JWYQOiUV/exec';
 
-        // Имитация отправки (замените на реальный API)
-        setTimeout(() => {
-            // Отслеживаем подписку в Яндекс.Метрике
-            if (typeof ym !== 'undefined') {
-                ym(104428361, 'reachGoal', 'email_subscription', {
-                    source: 'main_page',
-                    email_domain: email.split('@')[1]
-                });
-            }
-            console.log('📊 Email подписка:', email);
+        // Подготовка данных
+        const formData = new FormData();
+        formData.append('email', email);
+        formData.append('timestamp', new Date().toISOString());
+        formData.append('source', 'landing_page');
 
-            // Создаем сообщение об успехе
-            const successMessage = document.createElement('div');
-            successMessage.className = 'form-success';
-            successMessage.textContent = '✓ Спасибо! Вы подписаны на рассылку';
-
-            // Удаляем форму и показываем сообщение
-            this.style.display = 'none';
-            this.parentElement.insertBefore(successMessage, this.nextSibling);
-
-            // Можно отправить данные на сервер
-            console.log('Email подписан:', email);
-
-            // Пример отправки на сервер (раскомментируйте и настройте):
-            /*
-            fetch('/api/subscribe', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email: email })
+        // Отправка в Google Sheets
+        fetch(scriptURL, {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
             })
-            .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                console.log('✓ Email успешно сохранен:', email);
+
+                // Отслеживаем подписку в Яндекс.Метрике
+                if (typeof ym !== 'undefined') {
+                    ym(104428361, 'reachGoal', 'email_subscription', {
+                        source: 'main_page',
+                        email_domain: email.split('@')[1]
+                    });
+                }
+
+                // Создаем сообщение об успехе
+                const successMessage = document.createElement('div');
+                successMessage.className = 'form-success';
+                successMessage.textContent = '✓ Спасибо! Вы подписаны на рассылку';
+
+                // Удаляем форму и показываем сообщение
+                this.style.display = 'none';
+                this.parentElement.insertBefore(successMessage, this.nextSibling);
             })
             .catch((error) => {
-                console.error('Error:', error);
-            });
-            */
+                console.error('❌ Ошибка при сохранении email:', error);
 
-        }, 1000);
+                // Показываем сообщение об ошибке
+                alert('Произошла ошибка. Пожалуйста, попробуйте позже или напишите нам напрямую.');
+
+                // Восстанавливаем кнопку
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
     });
 }
 
