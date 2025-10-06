@@ -1,0 +1,27 @@
+# robots.txt для сайта Интуитивное питание
+
+User-agent: *
+Allow: /
+
+# Запрещаем индексацию служебных файлов
+Disallow: /script.js
+Disallow: /styles.css
+
+# Разрешаем изображения
+Allow: /images/
+
+# Указываем sitemap
+Sitemap: https://intuitive-eating.ru/sitemap.xml
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+

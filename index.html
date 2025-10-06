@@ -4,10 +4,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Навсегда избавьтесь от диет, срывов и чувства вины. Интуитивное питание без правил и ограничений.">
-    <title>Интуитивное питание — Свобода от диет</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Интуитивное питание — Свобода от диет | Приложение для осознанного питания</title>
+    <meta name="title" content="Интуитивное питание — Свобода от диет | Приложение для осознанного питания">
+    <meta name="description" content="Навсегда избавьтесь от диет, срывов и чувства вины. Мобильное приложение по интуитивному питанию поможет похудеть и начать лучше относиться к своему телу. Без правил и ограничений.">
+    <meta name="keywords" content="интуитивное питание, похудение без диет, приложение для питания, осознанное питание, избавиться от переедания, здоровое питание, расстройство пищевого поведения">
+    <meta name="author" content="Громова Ангелина Сергеевна">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Russian">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://intuitive-eating.ru/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://intuitive-eating.ru/">
+    <meta property="og:title" content="Интуитивное питание — Свобода от диет">
+    <meta property="og:description" content="Навсегда избавьтесь от диет, срывов и чувства вины. Приложение по интуитивному питанию поможет похудеть и начать лучше относиться к своему телу.">
+    <meta property="og:image" content="https://intuitive-eating.ru/images/before-after.webp">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Интуитивное питание">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://intuitive-eating.ru/">
+    <meta property="twitter:title" content="Интуитивное питание — Свобода от диет">
+    <meta property="twitter:description" content="Навсегда избавьтесь от диет, срывов и чувства вины. Приложение по интуитивному питанию поможет похудеть и начать лучше относиться к своему телу.">
+    <meta property="twitter:image" content="https://intuitive-eating.ru/images/before-after.webp">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://mc.yandex.ru">
+    
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MobileApplication",
+      "name": "Интуитивное питание",
+      "description": "Мобильное приложение по интуитивному питанию для гармоничных отношений с едой",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "RUB"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Громова Ангелина Сергеевна",
+        "email": "asg1997@yandex.ru"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "150"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Интуитивное питание",
+      "url": "https://intuitive-eating.ru/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://intuitive-eating.ru/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Интуитивное питание",
+      "url": "https://intuitive-eating.ru/",
+      "logo": "https://intuitive-eating.ru/images/ru_rtore_icon.webp",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "asg1997@yandex.ru",
+        "contactType": "Customer Service"
+      },
+      "sameAs": [
+        "https://t.me/intuitive_eating_app_ru"
+      ]
+    }
+    </script>
 </head>
 
 <body>
@@ -51,13 +143,13 @@
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
     <!-- Герой -->
-    <section class="hero" id="hero">
+    <section class="hero" id="hero" itemscope itemtype="https://schema.org/Product">
         <div class="container">
             <div class="hero-content fade-in">
                 <div class="hero-text">
-                    <h1 class="hero-title">Устали от <span class="highlight">диет</span>, <span
+                    <h1 class="hero-title" itemprop="name">Устали от <span class="highlight">диет</span>, <span
                             class="highlight">срывов</span>,<br>чувства <span class="highlight">вины</span>?</h1>
-                    <p class="hero-note">Приложение по интуитивному питанию<br>поможет
+                    <p class="hero-note" itemprop="description">Приложение по интуитивному питанию<br>поможет
                         тебе <span class="highlight">похудеть</span><br>и начать лучше относиться к своему телу
                     </p>
                     <div class="hero-buttons">
@@ -66,7 +158,7 @@
                 </div>
                 <div class="hero-image">
                     <div class="image-card">
-                        <img src="images/before-after.webp" alt="Путь к гармоничным отношениям с едой" class="hero-img">
+                        <img src="images/before-after.webp" alt="Путь к гармоничным отношениям с едой через интуитивное питание" class="hero-img" itemprop="image" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -230,8 +322,8 @@
                     <!-- Функция 1 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-hunger-tracker.webp" alt="Трекер голода и сытости"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-hunger-tracker.webp" alt="Трекер голода и сытости в приложении интуитивное питание"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Трекер голода и сытости</h3>
@@ -253,8 +345,8 @@
                     <!-- Функция 2 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-mindful-eating.webp" alt="Осознанный прием пищи"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-mindful-eating.webp" alt="Функция осознанного приема пищи для контроля питания"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Осознанный прием пищи</h3>
@@ -276,8 +368,8 @@
                     <!-- Функция 3 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-assistant.webp" alt="Виртуальный ассистент"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-assistant.webp" alt="Виртуальный ассистент для работы с эмоциональным перееданием"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Виртуальный ассистент</h3>
@@ -299,8 +391,8 @@
                     <!-- Функция 4 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-hunger-test.webp" alt="Тест на эмоциональный голод"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-hunger-test.webp" alt="Тест для определения эмоционального или физического голода"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Тест на эмоциональный голод</h3>
@@ -322,8 +414,8 @@
                     <!-- Функция 5 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-statistics.webp" alt="Статистика прогресса"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-statistics.webp" alt="Статистика прогресса и аналитика питания"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Статистика прогресса</h3>
@@ -345,8 +437,8 @@
                     <!-- Функция 6 -->
                     <div class="feature-slide">
                         <div class="feature-slide-image">
-                            <img src="images/feature-reminders.webp" alt="Умные напоминания"
-                                onerror="this.parentElement.classList.add('placeholder')">
+                            <img src="images/feature-reminders.webp" alt="Персонализированные умные напоминания о проверке голода"
+                                onerror="this.parentElement.classList.add('placeholder')" loading="lazy">
                         </div>
                         <div class="feature-slide-content">
                             <h3>Умные напоминания</h3>
@@ -387,65 +479,65 @@
     </section>
 
     <!-- FAQ -->
-    <section class="faq" id="faq">
+    <section class="faq" id="faq" itemscope itemtype="https://schema.org/FAQPage">
         <div class="container">
             <div class="section-header fade-in-up">
                 <h2>Часто задаваемые вопросы</h2>
                 <p class="section-subtitle">Ответим на твои сомнения</p>
             </div>
             <div class="faq-list">
-                <div class="faq-item fade-in-up">
+                <div class="faq-item fade-in-up" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <button class="faq-question">
-                        <span>Что такое интуитивное питание?</span>
+                        <span itemprop="name">Что такое интуитивное питание?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>Вес растет из-за переедания. Интуитивное питание учит отличать настоящий голод от
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Вес растет из-за переедания. Интуитивное питание учит отличать настоящий голод от
                             эмоционального и останавливаться вовремя. Без диет, запретов и вины — только сигналы тела
                         </p>
                     </div>
                 </div>
 
-                <div class="faq-item fade-in-up">
+                <div class="faq-item fade-in-up" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <button class="faq-question">
-                        <span>Это еще одна диета?</span>
+                        <span itemprop="name">Это еще одна диета?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>Нет. Это образовательная и психологическая программа, которая учит тебя выстраивать
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Нет. Это образовательная и психологическая программа, которая учит тебя выстраивать
                             гармоничные отношения с едой без правил и ограничений</p>
                     </div>
                 </div>
 
-                <div class="faq-item fade-in-up">
+                <div class="faq-item fade-in-up" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <button class="faq-question">
-                        <span>А если у меня снова будет срыв?</span>
+                        <span itemprop="name">А если у меня снова будет срыв?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>Мы научим тебя рассматривать срыв не как провал, а как ценную информацию. В приложении есть
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Мы научим тебя рассматривать срыв не как провал, а как ценную информацию. В приложении есть
                             инструменты, которые помогут тебе пройти через это без чувства вины</p>
                     </div>
                 </div>
 
-                <div class="faq-item fade-in-up">
+                <div class="faq-item fade-in-up" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <button class="faq-question">
-                        <span>Я уже пробовал(а) интуитивное питание, но у меня не получилось. Чем ты поможешь?</span>
+                        <span itemprop="name">Я уже пробовал(а) интуитивное питание, но у меня не получилось. Чем ты поможешь?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>Самостоятельно сложно разобраться. Мы даем четкую структуру, пошаговые инструкции и
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Самостоятельно сложно разобраться. Мы даем четкую структуру, пошаговые инструкции и
                             поддержку, которые проведут тебя через все сложности</p>
                     </div>
                 </div>
 
-                <div class="faq-item fade-in-up">
+                <div class="faq-item fade-in-up" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                     <button class="faq-question">
-                        <span>Я точно похудею?</span>
+                        <span itemprop="name">Я точно похудею?</span>
                         <span class="faq-icon">+</span>
                     </button>
-                    <div class="faq-answer">
-                        <p>Интуитивное питание помогает достичь естественный вес тела. Улучшается психологическое
+                    <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Интуитивное питание помогает достичь естественный вес тела. Улучшается психологическое
                             состояние, нормализуется давление и холестерин, снижаются расстройства пищевого поведения.
                             В отличие от диет, где 95% возвращают вес, результат держится. Главное — уйдет одержимость
                             едой и весами</p>
