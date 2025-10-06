@@ -35,6 +35,15 @@ faqItems.forEach(item => {
         // Открываем текущий, если он был закрыт
         if (!isActive) {
             item.classList.add('active');
+
+            // Отслеживаем открытие FAQ в Яндекс.Метрике
+            const questionText = question.querySelector('span').textContent;
+            if (typeof ym !== 'undefined') {
+                ym(104428361, 'reachGoal', 'faq_opened', {
+                    question: questionText
+                });
+            }
+            console.log('📊 FAQ открыт:', questionText);
         }
     });
 });
@@ -57,6 +66,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 top: targetPosition,
                 behavior: 'smooth'
             });
+
+            // Отслеживаем навигацию по разделам в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                ym(104428361, 'reachGoal', 'section_navigation', {
+                    section: targetId.replace('#', '')
+                });
+            }
+            console.log('📊 Переход к разделу:', targetId);
         }
     });
 });
@@ -115,6 +132,18 @@ buttons.forEach(button => {
         this.appendChild(ripple);
 
         setTimeout(() => ripple.remove(), 600);
+
+        // Отслеживаем клики по кнопкам "Узнать о запуске"
+        const buttonText = this.textContent.trim();
+        if (buttonText.includes('Узнать') || buttonText.includes('запуск')) {
+            if (typeof ym !== 'undefined') {
+                ym(104428361, 'reachGoal', 'click_subscribe_button', {
+                    button_text: buttonText,
+                    button_location: this.closest('section')?.id || 'header'
+                });
+            }
+            console.log('📊 Клик на кнопку подписки:', buttonText);
+        }
     });
 });
 
@@ -164,6 +193,15 @@ if (emailForm) {
 
         // Имитация отправки (замените на реальный API)
         setTimeout(() => {
+            // Отслеживаем подписку в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                ym(104428361, 'reachGoal', 'email_subscription', {
+                    source: 'main_page',
+                    email_domain: email.split('@')[1]
+                });
+            }
+            console.log('📊 Email подписка:', email);
+
             // Создаем сообщение об успехе
             const successMessage = document.createElement('div');
             successMessage.className = 'form-success';
@@ -267,6 +305,15 @@ class StoryCarousel {
 
         this.currentSlide = index;
         this.updateCarousel();
+
+        // Отслеживаем навигацию по историям в Яндекс.Метрике
+        if (typeof ym !== 'undefined') {
+            const storyTime = this.slides[index].querySelector('.time-label')?.textContent || `История ${index + 1}`;
+            ym(104428361, 'reachGoal', 'story_navigation', {
+                story_index: index,
+                story_time: storyTime
+            });
+        }
     }
 
     nextSlide() {
@@ -404,6 +451,15 @@ class FeaturesCarousel {
                 left: scrollLeft,
                 behavior: 'smooth'
             });
+
+            // Отслеживаем навигацию по функциям в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                const featureName = slide.querySelector('h3')?.textContent || `Функция ${pageIndex + 1}`;
+                ym(104428361, 'reachGoal', 'feature_carousel_navigation', {
+                    page_index: pageIndex,
+                    feature_name: featureName
+                });
+            }
         }
     }
 
@@ -565,11 +621,14 @@ class FeatureInterestTracker {
             });
         }
 
-        // Пример интеграции с Яндекс.Метрикой
+        // Интеграция с Яндекс.Метрикой
         if (typeof ym !== 'undefined') {
-            // Замените YOUR_COUNTER_ID на ваш ID счетчика
-            // ym(YOUR_COUNTER_ID, 'reachGoal', 'feature_interest', {feature: featureTitle});
+            ym(104428361, 'reachGoal', 'feature_interest', {
+                feature: featureTitle,
+                feature_index: index
+            });
         }
+        console.log('📊 Интерес к функции:', featureTitle);
 
         // Можно отправить данные на свой сервер
         /*
@@ -732,7 +791,10 @@ class CookieNotice {
         // Скрываем баннер
         this.hideNotice();
 
-        // Опционально: можно отправить событие в аналитику
+        // Отправляем событие в Яндекс.Метрику
+        if (typeof ym !== 'undefined') {
+            ym(104428361, 'reachGoal', 'cookie_accepted');
+        }
         console.log('✓ Пользователь принял использование cookies');
     }
 
@@ -826,6 +888,12 @@ class MobileMenu {
         this.menu.classList.add('active');
         this.overlay.classList.add('active');
         document.body.style.overflow = 'hidden'; // Предотвращаем скролл
+
+        // Отслеживаем открытие мобильного меню в Яндекс.Метрике
+        if (typeof ym !== 'undefined') {
+            ym(104428361, 'reachGoal', 'mobile_menu_opened');
+        }
+        console.log('📊 Открыто мобильное меню');
     }
 
     close() {
@@ -840,4 +908,55 @@ class MobileMenu {
 // Инициализация мобильного меню
 document.addEventListener('DOMContentLoaded', () => {
     window.mobileMenu = new MobileMenu();
+});
+
+// ========================================
+// Отслеживание перехода в Telegram
+// ========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const telegramBtn = document.querySelector('.telegram-btn');
+
+    if (telegramBtn) {
+        telegramBtn.addEventListener('click', () => {
+            // Отслеживаем переход в Telegram в Яндекс.Метрике
+            if (typeof ym !== 'undefined') {
+                ym(104428361, 'reachGoal', 'telegram_click', {
+                    source: 'subscribe_section'
+                });
+            }
+            console.log('📊 Переход в Telegram');
+        });
+    }
+});
+
+// ========================================
+// Отслеживание просмотра разделов
+// ========================================
+
+const sectionObserverOptions = {
+    threshold: 0.5, // Срабатывает, когда 50% секции видимо
+    rootMargin: '0px'
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const sectionId = entry.target.id || entry.target.className;
+
+            // Отслеживаем просмотр секции в Яндекс.Метрике
+            if (typeof ym !== 'undefined' && sectionId) {
+                ym(104428361, 'reachGoal', 'section_viewed', {
+                    section_id: sectionId
+                });
+                console.log('📊 Просмотр секции:', sectionId);
+            }
+        }
+    });
+}, sectionObserverOptions);
+
+// Наблюдаем за основными секциями
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.hero, .familiar, .features, .faq, .subscribe-section, .app-stores-section');
+    sections.forEach(section => sectionObserver.observe(section));
 });
