@@ -203,6 +203,8 @@ if (emailForm) {
         formData.append('email', email);
         formData.append('timestamp', new Date().toISOString());
         formData.append('source', 'landing_page');
+        formData.append('userAgent', navigator.userAgent);
+        formData.append('ipAddress', 'client_side'); // IP будет получен на сервере
 
         // Отправка в Google Sheets
         fetch(scriptURL, {
