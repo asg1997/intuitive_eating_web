@@ -553,14 +553,6 @@ body {
     z-index: 10;
 }
 
-.hero-subtitle {
-    font-size: 18px;
-    color: var(--dark-text);
-    margin-bottom: 16px;
-    line-height: 1.4;
-    font-weight: 500;
-}
-
 .tablet-break {
     display: none;
 }
@@ -570,6 +562,7 @@ body {
     color: var(--text-soft-white);
     margin-bottom: 40px;
     font-style: normal;
+    font-weight: normal;
     opacity: 1;
 }
 
@@ -1779,19 +1772,12 @@ section {
         margin-bottom: 24px;
     }
 
-    .hero-subtitle {
-        order: 2;
-        text-align: left;
-        max-width: 650px;
-        margin-bottom: 32px;
-    }
-
     .tablet-break {
         display: inline;
     }
 
     .hero-note {
-        order: 3;
+        order: 2;
         text-align: left;
         max-width: 650px;
         margin-bottom: 32px;
@@ -1879,10 +1865,6 @@ section {
 
     .hero-title {
         font-size: 36px;
-    }
-
-    .hero-subtitle {
-        font-size: 18px;
     }
 
     /* Адаптация стикеров для планшетов */
