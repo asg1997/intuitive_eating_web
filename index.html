@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Навсегда избавьтесь от диет, срывов и чувства вины. Интуитивное питание без правил и ограничений.">
+    <title>Интуитивное питание — Свобода от диет</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Навигация -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo"><span class="logo-app">Мобильное приложение</span><br>Интуитивное питание</a>
+
+                <!-- Десктопное меню -->
+                <div class="nav-links">
+                    <a href="#about">Для кого?</a>
+                    <a href="#solution">Функции</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#subscribe" class="btn btn-primary btn-small">Узнать о запуске</a>
+                </div>
+
+                <!-- Мобильная версия навигации -->
+                <div class="nav-mobile">
+                    <a href="#subscribe" class="btn btn-primary btn-small">Узнать о запуске</a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                        <span class="hamburger-line"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Мобильное меню -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-content">
+            <a href="#about" class="mobile-menu-link">Для кого?</a>
+            <a href="#solution" class="mobile-menu-link">Функции</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
+        </div>
+    </div>
+
+    <!-- Оверлей для мобильного меню -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Герой -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <div class="hero-text">
+                    <h1 class="hero-title">Устали от <span class="highlight">диет</span>, <span
+                            class="highlight">срывов</span>,<br>чувства <span class="highlight">вины</span>?</h1>
+                    <p class="hero-note">Приложение по интуитивному питанию<br>поможет
+                        тебе <span class="highlight">похудеть</span><br>и начать лучше относиться к своему телу
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#subscribe" class="btn btn-primary">Узнать первым о запуске</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-card">
+                        <img src="images/before-after.webp" alt="Путь к гармоничным отношениям с едой" class="hero-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Стикеры с цитатами -->
+    <section class="quotes-section">
+        <div class="container">
+            <div class="hero-phrases">
+                <div class="thought-bubble bubble-1">
+                    <p>"Опять сорвалась..."</p>
+                </div>
+                <div class="thought-bubble bubble-2">
+                    <p>"Почему у меня нет силы воли?"</p>
+                </div>
+                <div class="thought-bubble bubble-3">
+                    <p>"Я никогда не смогу нормально питаться"</p>
+                </div>
+                <div class="thought-bubble bubble-4">
+                    <p>"Завтра точно начну новую диету"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок "Знакомо?" -->
+    <section class="familiar" id="about">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Знакомо? Один день из жизни</h2>
+                <p class="section-subtitle">История, которую проживают миллионы людей каждый день</p>
+            </div>
+
+            <div class="story-carousel-container fade-in-up">
+                <div class="story-carousel" id="storyCarousel">
+                    <!-- История 1: Утро -->
+                    <div class="story-slide active">
+                        <div class="story-time">
+                            <span class="time-icon"></span>
+                            <span class="time-label">7:00 — Утро</span>
+                        </div>
+                        <div class="story-content">
+                            <h3>Сегодня точно всё будет по-другому</h3>
+                            <p class="story-text">Встаёшь на весы — опять плюс килограмм. Внутри всё сжимается. "Всё, с
+                                сегодняшнего дня только правильное питание. Никаких сладостей, только курица и брокколи.
+                                Буду считать калории и контролировать каждый кусочек."</p>
+                            <p class="story-emotion">"Сегодня я буду идеальной"</p>
+                        </div>
+                    </div>
+
+                    <!-- История 2: День -->
+                    <div class="story-slide">
+                        <div class="story-time">
+                            <span class="time-icon"></span>
+                            <span class="time-label">13:00 — Обед</span>
+                        </div>
+                        <div class="story-content">
+                            <h3>Когда планы рушатся</h3>
+                            <p class="story-text">На работе коллега принесла торт на день рождения. Все берут по
+                                кусочку. Ты говоришь "нет, спасибо", но внутри нарастает напряжение. Через час
+                                срываешься — съедаешь не один, а два куска. И еще конфету из вазочки на столе.</p>
+                            <p class="story-emotion">"Ну вот, опять сорвалась... Раз уж начала, то продолжу"</p>
+                        </div>
+                    </div>
+
+                    <!-- История 3: Вечер -->
+                    <div class="story-slide">
+                        <div class="story-time">
+                            <span class="time-icon"></span>
+                            <span class="time-label">19:00 — Вечер</span>
+                        </div>
+                        <div class="story-content">
+                            <h3>Спираль чувства вины</h3>
+                            <p class="story-text">Приходишь домой и понимаешь, что день "провален". Раз уж сорвалась, то
+                                можно и пиццу заказать. Ешь быстро, почти не чувствуя вкуса. Потом — тяжесть в животе
+                                и ненависть к себе. Снова листаешь диеты в интернете.</p>
+                            <p class="story-emotion">"Я безвольная. У меня никогда не получится"</p>
+                        </div>
+                    </div>
+
+                    <!-- История 4: Ночь -->
+                    <div class="story-slide">
+                        <div class="story-time">
+                            <span class="time-icon"></span>
+                            <span class="time-label">23:00 — Ночь</span>
+                        </div>
+                        <div class="story-content">
+                            <h3>Замкнутый круг</h3>
+                            <p class="story-text">Не можешь уснуть, идёшь к холодильнику. Ешь стоя, в темноте, что-то
+                                сладкое или калорийное. Обещаешь себе, что с понедельника начнёшь новую, "самую
+                                эффективную" диету. Засыпаешь с чувством вины и страхом перед завтрашним взвешиванием.
+                            </p>
+                            <p class="story-emotion">"С понедельника начну всё заново..."</p>
+                        </div>
+                    </div>
+
+                    <!-- История 5: Цикл повторяется -->
+                    <div class="story-slide">
+                        <div class="story-time">
+                            <span class="time-icon"></span>
+                            <span class="time-label">И так каждый день</span>
+                        </div>
+                        <div class="story-content">
+                            <h3>Хватит жить в этом круге</h3>
+                            <p class="story-text">Диеты не работают. Не потому что ты слаба или недостаточно стараешься,
+                                а потому что они идут против природы твоего тела и психики. Чем больше запретов, тем
+                                сильнее желание их нарушить. Наше приложение поможет тебе разорвать этот круг.</p>
+                            <p class="story-emotion story-solution">Пора найти другой путь — путь интуитивного питания
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Навигация -->
+                <div class="carousel-controls">
+                    <button class="carousel-btn carousel-prev" id="prevBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                    <button class="carousel-btn carousel-next" id="nextBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Статистика под каруселью -->
+            <div class="familiar-stats fade-in-up">
+                <div class="stat-item">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">диет не работают в долгосрочной перспективе</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2/3</div>
+                    <div class="stat-label">людей после диеты набирают ещё больше веса</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">попыток "начать с понедельника"</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок "Функции приложения" -->
+    <section class="features" id="solution">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Что внутри приложения?</h2>
+                <p class="section-subtitle">Все инструменты для гармоничных отношений с едой</p>
+            </div>
+
+            <div class="features-carousel-wrapper fade-in-up">
+                <div class="features-carousel" id="featuresCarousel">
+                    <!-- Функция 1 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-hunger-tracker.webp" alt="Трекер голода и сытости"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Трекер голода и сытости</h3>
+                            <p class="feature-description">Отслеживай уровни голода и сытости в течение дня. Учись
+                                различать физический и эмоциональный голод.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Функция 2 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-mindful-eating.webp" alt="Осознанный прием пищи"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Осознанный прием пищи</h3>
+                            <p class="feature-description">Режим сопровождения во время еды. Помогает замедлиться и
+                                вовремя остановиться.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Функция 3 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-assistant.webp" alt="Виртуальный ассистент"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Виртуальный ассистент</h3>
+                            <p class="feature-description">Персональный помощник для работы с причинами переедания.
+                                Помогает разобраться в эмоциях и найти альтернативы.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Функция 4 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-hunger-test.webp" alt="Тест на эмоциональный голод"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Тест на эмоциональный голод</h3>
+                            <p class="feature-description">Быстрый тест определяет физический или эмоциональный голод.
+                                Получи рекомендации на основе результата.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Функция 5 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-statistics.webp" alt="Статистика прогресса"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Статистика прогресса</h3>
+                            <p class="feature-description">Визуализация твоего пути: динамика осознанности и паттерны
+                                питания. Без фокуса на вес.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Функция 6 -->
+                    <div class="feature-slide">
+                        <div class="feature-slide-image">
+                            <img src="images/feature-reminders.webp" alt="Умные напоминания"
+                                onerror="this.parentElement.classList.add('placeholder')">
+                        </div>
+                        <div class="feature-slide-content">
+                            <h3>Умные напоминания</h3>
+                            <p class="feature-description">Персонализированные напоминания о проверке голода и практиках
+                                осознанности. В удобное для тебя время.</p>
+                            <button class="feature-interest-btn" aria-label="Мне интересно">
+                                <svg class="interest-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3">
+                                    </path>
+                                </svg>
+                                <span>Жду</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Навигация -->
+                <div class="features-navigation">
+                    <button class="features-nav-btn features-prev" id="featuresPrevBtn" aria-label="Предыдущая функция">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <div class="features-dots" id="featuresDots"></div>
+                    <button class="features-nav-btn features-next" id="featuresNextBtn" aria-label="Следующая функция">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header fade-in-up">
+                <h2>Часто задаваемые вопросы</h2>
+                <p class="section-subtitle">Ответим на твои сомнения</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Что такое интуитивное питание?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Вес растет из-за переедания. Интуитивное питание учит отличать настоящий голод от
+                            эмоционального и останавливаться вовремя. Без диет, запретов и вины — только сигналы тела
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Это еще одна диета?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Нет. Это образовательная и психологическая программа, которая учит тебя выстраивать
+                            гармоничные отношения с едой без правил и ограничений</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>А если у меня снова будет срыв?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Мы научим тебя рассматривать срыв не как провал, а как ценную информацию. В приложении есть
+                            инструменты, которые помогут тебе пройти через это без чувства вины</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Я уже пробовал(а) интуитивное питание, но у меня не получилось. Чем ты поможешь?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Самостоятельно сложно разобраться. Мы даем четкую структуру, пошаговые инструкции и
+                            поддержку, которые проведут тебя через все сложности</p>
+                    </div>
+                </div>
+
+                <div class="faq-item fade-in-up">
+                    <button class="faq-question">
+                        <span>Я точно похудею?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Интуитивное питание помогает достичь естественный вес тела. Улучшается психологическое
+                            состояние, нормализуется давление и холестерин, снижаются расстройства пищевого поведения.
+                            В отличие от диет, где 95% возвращают вес, результат держится. Главное — уйдет одержимость
+                            едой и весами</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe-section" id="subscribe">
+        <div class="container">
+            <div class="subscribe-content fade-in-up">
+                <h2>Присоединяйся к сообществу</h2>
+
+                <!-- Таймер обратного отсчета -->
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-header">
+                        <h3>До запуска первой версии осталось:</h3>
+                    </div>
+                    <div class="countdown-display">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">дней</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">часов</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">минут</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">секунд</div>
+                        </div>
+                    </div>
+                </div>
+
+                <p>Подпишись и получи:</p>
+
+                <ul class="subscribe-benefits">
+                    <li>Доступ к ранним версиям приложения</li>
+                    <li>Участие в развитии и тестировании</li>
+                    <li>Влияние на новые функции приложения</li>
+                    <li>Полезные статьи по интуитивному питанию</li>
+                </ul>
+
+                <div class="subscribe-options">
+                    <div class="subscribe-box">
+                        <h3>Email-рассылка</h3>
+                        <p>Получай полезные материалы и узнай первым о запуске</p>
+                        <form class="email-form" id="emailForm">
+                            <input type="email" placeholder="E-mail" required class="email-input">
+                            <button type="submit" class="btn btn-primary btn-large">Подписаться</button>
+                        </form>
+                        <p class="form-note">Никакого спама, только ценная информация</p>
+                    </div>
+
+                    <div class="subscribe-box">
+                        <h3>Telegram канал</h3>
+                        <p>Присоединяйся к сообществу единомышленников</p>
+                        <a href="https://t.me/intuitive_eating_app_ru" target="_blank"
+                            class="btn btn-primary btn-large telegram-btn">
+                            <svg class="telegram-icon" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.8C16.49 10.38 15.84 14.22 15.51 15.99C15.37 16.74 15.09 16.99 14.83 17.02C14.25 17.07 13.81 16.64 13.25 16.27C12.37 15.69 11.87 15.33 11.02 14.77C10.03 14.12 10.67 13.76 11.24 13.18C11.39 13.03 13.95 10.7 14 10.49C14.0069 10.4582 14.006 10.4252 13.9973 10.3938C13.9886 10.3624 13.9724 10.3337 13.95 10.31C13.89 10.26 13.81 10.28 13.74 10.29C13.65 10.31 12.25 11.24 9.52 13.08C9.12 13.35 8.76 13.49 8.44 13.48C8.08 13.47 7.4 13.28 6.89 13.11C6.26 12.91 5.77 12.8 5.81 12.45C5.83 12.27 6.08 12.09 6.55 11.9C9.47 10.63 11.41 9.79 12.38 9.39C15.16 8.23 15.73 8.03 16.11 8.03C16.19 8.03 16.38 8.05 16.5 8.15C16.6 8.23 16.63 8.34 16.64 8.42C16.63 8.48 16.65 8.66 16.64 8.8Z"
+                                    fill="currentColor" />
+                            </svg>
+                            Перейти в Telegram
+                        </a>
+                        <p class="form-note">Новости, поддержка и полезный контент</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Stores Section -->
+    <section class="app-stores-section">
+        <div class="container">
+            <div class="app-stores-content fade-in-up">
+                <h2>Скоро в магазинах приложений</h2>
+                <div class="app-stores-buttons">
+                    <a href="#" class="app-store-btn disabled">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z" />
+                        </svg>
+                        <div class="app-store-text">
+                            <span class="app-store-small">Загрузите в</span>
+                            <span class="app-store-large">App Store</span>
+                        </div>
+                    </a>
+                    <a href="#" class="app-store-btn disabled">
+                        <img src="images/ru_rtore_icon.webp" alt="RuStore" width="32" height="32" class="rustore-icon">
+                        <div class="app-store-text">
+                            <span class="app-store-small">Доступно в</span>
+                            <span class="app-store-large">RuStore</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Интуитивное питание. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="privacy-policy.html">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Notice -->
+    <div class="cookie-notice" id="cookieNotice">
+        <div class="cookie-content">
+            <p>Мы используем cookies для улучшения работы сайта и аналитики. Продолжая использовать сайт, вы
+                соглашаетесь с <a href="privacy-policy.html">политикой конфиденциальности</a>.</p>
+            <button class="cookie-accept" id="cookieAccept">Понятно</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
