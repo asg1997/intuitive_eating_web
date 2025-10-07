@@ -404,10 +404,12 @@ class FeaturesCarousel {
         this.touchStartX = 0;
         this.touchEndX = 0;
         this.scrollTimeout = null;
+        this.isMobile = window.innerWidth <= 768;
 
         if (!this.carousel || !this.slides.length) return;
 
         this.init();
+        this.handleResize();
     }
 
     init() {
@@ -415,65 +417,132 @@ class FeaturesCarousel {
         this.createDots();
 
         // Обработчики кнопок
-        this.prevBtn.addEventListener('click', () => this.scrollPrev());
-        this.nextBtn.addEventListener('click', () => this.scrollNext());
+        this.prevBtn.addEventListener('click', () => this.navigatePrev());
+        this.nextBtn.addEventListener('click', () => this.navigateNext());
 
-        // Обработчик прокрутки карусели с debounce
+        // Обработчик прокрутки карусели с debounce (только для десктопа)
         this.carousel.addEventListener('scroll', () => {
-            clearTimeout(this.scrollTimeout);
-            this.scrollTimeout = setTimeout(() => this.updateActiveSlide(), 50);
+            if (!this.isMobile) {
+                clearTimeout(this.scrollTimeout);
+                this.scrollTimeout = setTimeout(() => this.updateActiveSlide(), 50);
+            }
         });
 
         // Обработчики точек
         const dots = this.dotsContainer.querySelectorAll('.features-dot');
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => this.scrollToSlide(index));
+            dot.addEventListener('click', () => this.goToSlide(index));
         });
 
         // Поддержка свайпов на мобильных
         this.carousel.addEventListener('touchstart', (e) => {
-            this.touchStartX = e.changedTouches[0].screenX;
+            if (this.isMobile) {
+                this.touchStartX = e.changedTouches[0].screenX;
+            }
         });
 
         this.carousel.addEventListener('touchend', (e) => {
-            this.touchEndX = e.changedTouches[0].screenX;
-            this.handleSwipe();
+            if (this.isMobile) {
+                this.touchEndX = e.changedTouches[0].screenX;
+                this.handleSwipe();
+            }
+        });
+
+        // Обработчик изменения размера окна
+        window.addEventListener('resize', () => this.handleResize());
+
+        // Клавиатурная навигация
+        document.addEventListener('keydown', (e) => {
+            if (this.isMobile) {
+                if (e.key === 'ArrowLeft') this.navigatePrev();
+                if (e.key === 'ArrowRight') this.navigateNext();
+            }
         });
 
         // Инициализация
-        this.updateActiveSlide();
+        this.updateCarousel();
+    }
+
+    handleResize() {
+        const wasMobile = this.isMobile;
+        this.isMobile = window.innerWidth <= 768;
+
+        // Если режим изменился, обновляем отображение
+        if (wasMobile !== this.isMobile) {
+            this.updateDots();
+            this.updateCarousel();
+        }
     }
 
     createDots() {
-        // Создаем 4 точки для 4 страниц (6 слайдов - 3 видимых + 1 = 4 страницы)
-        const totalPages = 4;
-        for (let i = 0; i < totalPages; i++) {
+        // На мобильных создаем точку для каждого слайда
+        // На десктопе создаем 4 точки для страниц
+        const totalDots = this.isMobile ? this.slides.length : 4;
+
+        for (let i = 0; i < totalDots; i++) {
             const dot = document.createElement('button');
             dot.className = 'features-dot';
-            dot.setAttribute('aria-label', `Перейти к странице ${i + 1}`);
+            dot.setAttribute('aria-label', `Перейти к ${this.isMobile ? 'функции' : 'странице'} ${i + 1}`);
             if (i === 0) dot.classList.add('active');
             this.dotsContainer.appendChild(dot);
         }
     }
 
-    scrollToSlide(pageIndex) {
-        // Страница 0 -> слайд 0, страница 1 -> слайд 1, и т.д.
-        const slide = this.slides[pageIndex];
-        if (slide) {
-            const scrollLeft = slide.offsetLeft - parseInt(getComputedStyle(this.carousel).paddingLeft);
-            this.carousel.scrollTo({
-                left: scrollLeft,
-                behavior: 'smooth'
-            });
+    updateDots() {
+        // Пересоздаем точки при изменении режима
+        this.dotsContainer.innerHTML = '';
+        this.createDots();
+    }
 
-            // Отслеживаем навигацию по функциям в Яндекс.Метрике
-            if (typeof ym !== 'undefined') {
-                const featureName = slide.querySelector('h3')?.textContent || `Функция ${pageIndex + 1}`;
-                ym(104428361, 'reachGoal', 'feature_carousel_navigation', {
-                    page_index: pageIndex,
-                    feature_name: featureName
+    goToSlide(index) {
+        if (index < 0 || index >= this.slides.length) return;
+
+        if (this.isMobile) {
+            // На мобильных переключаем слайды
+            this.currentIndex = index;
+            this.updateCarousel();
+        } else {
+            // На десктопе прокручиваем
+            const slide = this.slides[index];
+            if (slide) {
+                const scrollLeft = slide.offsetLeft - parseInt(getComputedStyle(this.carousel).paddingLeft);
+                this.carousel.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
                 });
             }
+        }
+
+        // Отслеживаем навигацию по функциям в Яндекс.Метрике
+        if (typeof ym !== 'undefined') {
+            const featureName = this.slides[index]?.querySelector('h3')?.textContent || `Функция ${index + 1}`;
+            ym(104428361, 'reachGoal', 'feature_carousel_navigation', {
+                index: index,
+                feature_name: featureName,
+                is_mobile: this.isMobile
+            });
+        }
+    }
+
+    navigateNext() {
+        if (this.isMobile) {
+            if (this.currentIndex < this.slides.length - 1) {
+                this.currentIndex++;
+                this.updateCarousel();
+            }
+        } else {
+            this.scrollNext();
+        }
+    }
+
+    navigatePrev() {
+        if (this.isMobile) {
+            if (this.currentIndex > 0) {
+                this.currentIndex--;
+                this.updateCarousel();
+            }
+        } else {
+            this.scrollPrev();
         }
     }
 
@@ -502,28 +571,50 @@ class FeaturesCarousel {
         if (Math.abs(diff) > swipeThreshold) {
             if (diff > 0) {
                 // Свайп влево - следующий слайд
-                this.scrollNext();
+                this.navigateNext();
             } else {
                 // Свайп вправо - предыдущий слайд
-                this.scrollPrev();
+                this.navigatePrev();
             }
         }
     }
 
+    updateCarousel() {
+        if (this.isMobile) {
+            // Мобильный режим - показываем все слайды вертикальным списком
+            this.carousel.style.overflow = 'visible';
+            this.carousel.style.display = 'block';
+
+            this.slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.display = 'flex';
+            });
+        } else {
+            // Десктопный режим - показываем все слайды горизонтально
+            // Включаем скролл
+            this.carousel.style.overflow = 'auto';
+            this.carousel.style.display = 'flex';
+
+            this.slides.forEach(slide => {
+                slide.classList.remove('active');
+                slide.style.display = 'flex';
+            });
+
+            this.updateActiveSlide();
+        }
+    }
+
     updateActiveSlide() {
-        // Получаем границы карусели
+        // Для десктопа - определяем активный слайд по позиции скролла
         const carouselRect = this.carousel.getBoundingClientRect();
         const carouselLeft = carouselRect.left;
 
-        // Находим слайд, который ближе всего к левому краю карусели
         let activeSlideIndex = 0;
         let minDistance = Infinity;
 
         this.slides.forEach((slide, index) => {
             const slideRect = slide.getBoundingClientRect();
             const slideLeft = slideRect.left;
-
-            // Расстояние от левого края слайда до левого края карусели
             const distance = Math.abs(slideLeft - carouselLeft);
 
             if (distance < minDistance) {
@@ -532,11 +623,9 @@ class FeaturesCarousel {
             }
         });
 
-        // Ограничиваем активную страницу до 3 (всего 4 страницы: 0, 1, 2, 3)
         const activePage = Math.min(activeSlideIndex, 3);
         this.currentIndex = activePage;
 
-        // Обновляем точки (всего 4 точки)
         const dots = this.dotsContainer.querySelectorAll('.features-dot');
         dots.forEach((dot, index) => {
             dot.classList.remove('active');
@@ -545,16 +634,8 @@ class FeaturesCarousel {
             }
         });
 
-        // Обновляем кнопки
         this.prevBtn.disabled = this.currentIndex === 0;
         this.nextBtn.disabled = this.currentIndex >= 3;
-    }
-
-    getSlidesPerView() {
-        // Определяем сколько слайдов видно одновременно
-        const carouselWidth = this.carousel.offsetWidth;
-        const slideWidth = this.slides[0].offsetWidth;
-        return Math.floor(carouselWidth / slideWidth);
     }
 }
 
@@ -848,6 +929,7 @@ document.addEventListener('DOMContentLoaded', () => {
 class MobileMenu {
     constructor() {
         this.menuBtn = document.getElementById('mobileMenuBtn');
+        this.closeBtn = document.getElementById('mobileMenuClose');
         this.menu = document.getElementById('mobileMenu');
         this.overlay = document.getElementById('mobileMenuOverlay');
         this.menuLinks = document.querySelectorAll('.mobile-menu-link');
@@ -861,6 +943,11 @@ class MobileMenu {
     init() {
         // Обработчик кнопки меню
         this.menuBtn.addEventListener('click', () => this.toggle());
+
+        // Обработчик кнопки закрытия в меню
+        if (this.closeBtn) {
+            this.closeBtn.addEventListener('click', () => this.close());
+        }
 
         // Обработчик оверлея
         this.overlay.addEventListener('click', () => this.close());
