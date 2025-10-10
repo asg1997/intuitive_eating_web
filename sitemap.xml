@@ -37,5 +37,80 @@
         <priority>0.5</priority>
     </url>
 
+    <!-- Страница со списком статей -->
+    <url>
+        <loc>https://intuitive-eating.ru/articles.html</loc>
+        <lastmod>2025-10-10</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Статьи -->
+    <url>
+        <loc>https://intuitive-eating.ru/articles/intuitivnoe-pitanie-dlya-zanyatykh.html</loc>
+        <lastmod>2025-10-11</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-intuitive-eating-busy.webp</image:loc>
+            <image:title>Интуитивное питание для занятых людей</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://intuitive-eating.ru/articles/chetyre-tipa-goloda.html</loc>
+        <lastmod>2025-10-12</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-four-types-hunger.webp</image:loc>
+            <image:title>Четыре типа голода в интуитивном питании</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://intuitive-eating.ru/articles/mify-ob-intuitivnom-pitanii.html</loc>
+        <lastmod>2025-10-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-myths-about-ie.webp</image:loc>
+            <image:title>Факты и мифы об интуитивном питании</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://intuitive-eating.ru/articles/emocionalnoe-pitanie.html</loc>
+        <lastmod>2025-10-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-emotional-eating.webp</image:loc>
+            <image:title>Эмоциональное питание и как его остановить</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://intuitive-eating.ru/articles/35-let-s-intuitivnym-pitaniem.html</loc>
+        <lastmod>2025-10-14</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-35-years-story.webp</image:loc>
+            <image:title>3,5 года спустя: Как интуитивное питание изменило мою жизнь</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://intuitive-eating.ru/articles/pochemu-ie-rabotaet.html</loc>
+        <lastmod>2025-10-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <image:image>
+            <image:loc>https://intuitive-eating.ru/images/articles/article-why-ie-works.webp</image:loc>
+            <image:title>Почему интуитивное питание РАБОТАЕТ</image:title>
+        </image:image>
+    </url>
+
 </urlset>
 
